@@ -1,0 +1,12 @@
+;; -*- Scheme -*-
+
+(
+ (synopsis "Parser combinators for Internet Message Format (RFC 5322).")
+ (license "GPL-3")
+ (category parsing)
+ (dependencies yasos utf8 abnf)
+ (test-dependencies test)
+ (author "Ivan Raikov")
+ (components (extension internet-message))
+ )
+
