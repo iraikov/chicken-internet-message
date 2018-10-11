@@ -5,18 +5,18 @@ Parser combinators for Internet Message Format (RFC 5322).
 
 ## Description
 
-{{internet-message}} is a collection of parser combinators for the
-grammar defined in [[http://www.ietf.org/rfc/rfc5322.txt|RFC 5322]]
-(Internet Message Format).
+The `internet-message` library is a collection of parser combinators for the
+grammar defined in [RFC 5322](http://www.ietf.org/rfc/rfc5322.txt),
+Internet Message Format.
 
 ## Usage
 
 The combinator procedures in this library are based on the interface
-provided by the [[abnf]] library.
+provided by the [abnf](https://github.com/iraikov/chicken-lexgen) library.
 
 Each procedure contained exported by `internet-message`
-is a parser combinator of the form {{(lambda (cont s) ...)}}, which takes a
-continuation and input stream. For instance, the {{message}} parser
+is a parser combinator of the form `(lambda (cont s) ...)`, which takes a
+continuation and input stream. For instance, the `message` parser
 combinator can be used to parse messages:
 
 ```scheme
@@ -100,10 +100,6 @@ This parser parses comment text, as defined by the RFC. Comments may
 nest.
 
 
-## Requires
-
-* [[abnf]]
-
 ## Version History
 
 * 7.0 Ported to CHICKEN 5
@@ -125,7 +121,7 @@ nest.
 Based on the Haskell Rfc2822 module by Peter Simons.
 
 >
->  Copyright 2009-2017 Ivan Raikov.
+>  Copyright 2009-2018 Ivan Raikov.
 >
 >
 > This program is free software: you can redistribute it and/or
