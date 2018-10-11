@@ -57,36 +57,36 @@ This parser will parse an arbitrary number of header fields as defined
 in the RFC. For each field, an appropriate alist is created. The
 following fields are recognized:
 
-* {{from}}
-* {{sender}}
-* {{return-path}}
-* {{reply-to}}
-* {{to}}
-* {{cc}}
-* {{bcc}}
-* {{message-id}}
-* {{in-reply-to}}
-* {{references}}
-* {{subject}}
-* {{comments}}
-* {{keywords}}
-* {{orig-date}}
-* {{resent-date}}
-* {{resent-from}}
-* {{resent-sender}}
-* {{resent-to}}
-* {{resent-cc}}
-* {{resent-bcc}}
-* {{resent-msg-id}}
-* {{resent-reply-to}}
-* {{received}}
-* {{optional-field}}
+* `from`
+* `sender`
+* `return-path`
+* `reply-to`
+* `to`
+* `cc`
+* `bcc`
+* `message-id`
+* `in-reply-to`
+* `references`
+* `subject`
+* `comments`
+* `keywords`
+* `orig-date`
+* `resent-date`
+* `resent-from`
+* `resent-sender`
+* `resent-to`
+* `resent-cc`
+* `resent-bcc`
+* `resent-msg-id`
+* `resent-reply-to`
+* `received`
+* `optional-field`
 
 <procedure>body</procedure>
 
 This parser will parse a message body as specified by the RFC; that
 is, any number of text characters, which may be divided into separate
-lines by {{CRLF}}.
+lines by `CRLF`.
 
 <procedure>message</procedure>
 
