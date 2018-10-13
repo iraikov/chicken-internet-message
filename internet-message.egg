@@ -5,7 +5,7 @@
  (license "GPL-3")
  (category parsing)
  (dependencies yasos utf8 abnf)
- (test-dependencies test)
+ (test-dependencies srfi-1 srfi-13 srfi-14 test)
  (author "Ivan Raikov")
  (components (extension internet-message))
  )
