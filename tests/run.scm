@@ -1,7 +1,7 @@
 ;; input stream based on character list
 
 (import scheme (chicken base) (chicken format)
-        srfi-1 srfi-13 srfi-14 test internet-message)
+        srfi-1 utf8-srfi-13 utf8-srfi-14 test internet-message)
 
 
 (define (string->input-stream s) `(() ,(string->list s)))

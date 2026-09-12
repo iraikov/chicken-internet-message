@@ -12,7 +12,7 @@ Internet Message Format.
 ## Usage
 
 The combinator procedures in this library are based on the interface
-provided by the [abnf](https://github.com/iraikov/chicken-lexgen) library.
+provided by the [abnf](https://github.com/iraikov/chicken-abnf) library.
 
 Each procedure contained exported by `internet-message`
 is a parser combinator of the form `(lambda (cont s) ...)`, which takes a
@@ -100,8 +100,34 @@ This parser parses comment text, as defined by the RFC. Comments may
 nest.
 
 
+## Bidirectional (lens) parsing
+
+`internet-message-lens.scm` builds on the
+[abnf-lens](https://wiki.call-cc.org/eggref/6/abnf) library to add a
+second direction to a representative part of the grammar above: besides
+parsing text into a value, each rule there can also print a value back
+out as text. A `From:` header built as a `NamedMailbox` record, for
+instance, prints as `From: John Doe <jdoe@example.com>\r\n`, and parsing
+that same line back reproduces the record.
+
+This covers addresses (mailboxes, groups, display names, quoted local
+parts), the common structured headers (`From`, `Sender`, `Reply-To`,
+`To`, `Cc`, `Bcc`, the `Resent-*` headers, `Subject`, `Comments`,
+`Keywords`, `Date`, `Message-ID`, `In-Reply-To`, `References`), a generic
+fallback for unrecognized headers, and a complete message with its body.
+It leaves out the trace fields (`Received`, `Return-Path`), the Unicode
+text variants, and `parts`.
+
+Comments and folding whitespace are canonicalized rather than preserved:
+they are dropped when parsing and printed back as either nothing or a
+single space, so a value built by a program always prints as valid,
+readable text, and a value obtained by parsing always prints back to
+text with the same meaning.
+
+
 ## Version History
 
+* 8.0 Ported to CHICKEN 6; added internet-message-lens.
 * 7.0 Ported to CHICKEN 5
 * 5.3 Bug fix in received-token
 * 5.2 Updated test script to return proper exit code
@@ -121,7 +147,7 @@ nest.
 Based on the Haskell Rfc2822 module by Peter Simons.
 
 >
->  Copyright 2009-2018 Ivan Raikov.
+>  Copyright 2009-2026 Ivan Raikov.
 >
 >
 > This program is free software: you can redistribute it and/or
